@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #3b82f6 !important;   /* Tailwind blue-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); /* Tailwind ring-blue-400 */
+  outline: none;
+}
