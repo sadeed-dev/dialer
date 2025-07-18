@@ -50,5 +50,4 @@ Lead.prototype.toJSON = function () {
   return { ...this.get() };  // Includes all fields including createdAt, updatedAt
 };
 
-console.log(Lead.primaryKeyAttribute)
 export default Lead;

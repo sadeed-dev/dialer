@@ -162,8 +162,6 @@ const LoginMicrosoft = () => {
 const handleLogin = async () => {
   try {
     const response = await instance.loginPopup(loginRequest);
-    console.log("✅ Microsoft login success:", response);
-
     const idToken = response.idToken;
 
     const baseURI = import.meta.env.VITE_API_BASE_URL;
@@ -179,7 +177,6 @@ const handleLogin = async () => {
       }
     );
 
-    console.log("✅ Backend API response:", apiResponse.data);
 
     
     // ✅ Store YOUR token, not Microsoft one

@@ -11,7 +11,6 @@ export const initWhatsAppBot = () => {
   });
 
   client.on("qr", (qr) => {
-    console.log("📱 Scan this QR code to log in:");
     qrcode.generate(qr, { small: true });
   });
 
@@ -39,5 +38,5 @@ export const sendMessageToGroup = async (groupName, message) => {
   }
 
   await client.sendMessage(group.id._serialized, message);
-  console.log(`✅ Message sent to group "${groupName}"`);
+  console.log(`Message sent to group "${groupName}"`);
 };

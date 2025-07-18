@@ -49,7 +49,6 @@ dotenv.config();
 // ✅ Path utilities for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-console.log('✅ __dirname resolved to:', __dirname);
 
 // ✅ Middleware configuration
 app.use(cors({
@@ -76,7 +75,6 @@ app.use('/api', router);
 
 // ✅ Serve static files from 'dist' folder (frontend build)
 const distPath = path.join(__dirname, 'dist');
-console.log('✅ Resolved dist path:', distPath);
 app.use(express.static(distPath));
 
 
@@ -84,14 +82,11 @@ const indexPath = '/home/startupflora-dialer/htdocs/dialer.startupflora.co/dist/
 
 
 app.get('*', (req, res) => {
-  console.log('✅ Serving index.html for route:', req.originalUrl);
-
   res.sendFile(indexPath, (err) => {
     if (err) {
       console.error('❌ Error serving index.html:', err);
       res.status(500).send(err);
     } else {
-      console.log('✅ index.html served successfully');
     }
   });
 });

@@ -60,14 +60,12 @@ useEffect(() => {
     const selectedStatus = watch("status");
 
     const onSubmit = (data) => {
-      console.log("Submitting status:", data);
       if (!data.status) {
         alert("Please select a status");
         return;
       }
 
       handleSubmitStatus(row, data, (newStatus) => {
-        console.log("Status updated to:", newStatus);
         setSubmitted(true);
         setDialogOpen(false);
         // reset({ status: newStatus, remark: "" });

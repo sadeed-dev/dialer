@@ -47,7 +47,6 @@ export default function LoginPage() {
     successMessage: 'Login successful!',
     errorMessage: 'Invalid OTP',
     onSuccess: (data) => {
-      console.log('Login successful:', data);
       localStorage.setItem('user', JSON.stringify(data?.data));
       navigate('/admin/leads');
     },

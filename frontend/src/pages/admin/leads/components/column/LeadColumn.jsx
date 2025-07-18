@@ -1,127 +1,3 @@
-// import { Box, Button, Menu, MenuItem } from "@mui/material";
-// import React, { useState } from "react";
-
-// export default function getLeadColumns({ handleSubmitStatus }) {
-//   const StatusAction = ({ row }) => {
-//     const [anchorEl, setAnchorEl] = useState(null);
-//     const [selectedStatus, setSelectedStatus] = useState(row.status || "");
-
-//        const enableStatusOptions = ['Not picking up', 'Busy', 'Callback'];
-
-// const [submitted, setSubmitted] = useState(
-//   row.status !== null &&
-//   row.status !== "" &&
-//   !enableStatusOptions.map(s => s.toLowerCase()).includes(row.status.toLowerCase())
-// );
-
-//     console.log(submitted, "submitted");
-//     const handleClick = (event) => {
-//       setAnchorEl(event.currentTarget);
-//     };
-
-//     const handleClose = () => {
-//       setAnchorEl(null);
-//     };
-
-//     const handleSelectStatus = (status) => {
-//       setSelectedStatus(status);
-//       handleClose();
-//     };
-
-//     const handleSubmit = () => {
-//       if (!selectedStatus) {
-//         alert("Please select a status");
-//         return;
-//       }
-//         handleSubmitStatus(row, selectedStatus, (newStatus) => {
-//           setSubmitted(true); // ✅ disable buttons immediately
-//           setSelectedStatus(newStatus); // update selected status displayed
-//         });
-//     };
-
-//     const statusOptions = [
-//       "Interested",
-//       "Not picking up",
-//       "Busy",
-//       "Wrong number",
-//       "Callback",
-//     ];
-
-//     return (
-//       <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
-//        <Button
-//   variant="outlined"
-//   size="small"
-//   onClick={handleClick}
-//   disabled={submitted}
-//   sx={{
-//     textTransform: "none",
-//     borderColor: "#2563eb", // always blue
-//     color: "#2563eb", // always blue
-//     opacity: submitted ? 1 : undefined, // ✅ keep full opacity even when disabled
-//     "&.Mui-disabled": {
-//       borderColor: "#2563eb", // ✅ keep blue border when disabled
-//       color: "#2563eb", // ✅ keep blue text when disabled
-//       opacity: 1,
-//     },
-//   }}
-// >
-//   {selectedStatus || "Select Status"}
-// </Button>
-
-//         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-//           {statusOptions.map((status) => (
-//             <MenuItem key={status} onClick={() => handleSelectStatus(status)}>
-//               {status}
-//             </MenuItem>
-//           ))}
-
-//         </Menu>
-//         <Button
-//           variant="contained"
-//           size="small"
-//           onClick={handleSubmit}
-//           disabled={submitted}
-//           sx={{
-//             textTransform: "none",
-//             backgroundColor: submitted ? "#9ca3af" : "#2563eb",
-//             "&:hover": { backgroundColor: submitted ? "#9ca3af" : "#1d4ed8" },
-//           }}
-//         >
-//           {submitted ? "Submitted" : "Submit Status"}
-//         </Button>
-//       </Box>
-//     );
-//   };
-
-//   return [
-//     {
-//       field: "serial",
-//       headerName: "S.No.",
-//       type: "serial",
-//       minWidth: 40,
-//       align: "center",
-//     },
-//     { field: "mobile_number", headerName: "Mobile Number", minWidth: 150, align: "center" },
-//     { field: "company_name", headerName: "Company Name", minWidth: 150, align: "center" },
-//     { field: "owner_name", headerName: "Owner Name", minWidth: 150, align: "center" },
-//     { field: "turnover", headerName: "Turnover", minWidth: 100, align: "center" },
-//     { field: "servicing", headerName: "Servicing", minWidth: 100, align: "center" },
-//     { field: "type", headerName: "Type", minWidth: 100, align: "center" },
-//     {
-//       field: "actions",
-//       headerName: "Actions",
-//       minWidth: 200,
-//       align: "center",
-//       renderCell: ({ row }) => <StatusAction row={row} />,
-//     },
-    
-//   ];
-// }
-
-
-
-
 import {
   Box,
   Button,
@@ -182,14 +58,12 @@ export default function getLeadColumns({ handleSubmitStatus ,extraCell}) {
     const selectedStatus = watch("status");
 
     const onSubmit = (data) => {
-      console.log("Submitting status:", data);
       if (!data.status) {
         toast.warning("Please select a status First");
         return;
       }
 
       handleSubmitStatus(row, data, (newStatus) => {
-        console.log("Status updated to:", newStatus);
         setSubmitted(true);
         setDialogOpen(false);
         // reset({ status: newStatus, remark: "" });

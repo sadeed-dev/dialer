@@ -405,7 +405,6 @@ updateStatus(
       />
     )}
   </Box>
-{console.log(user?.user?.role)}
   {user && user?.user?.role == "ADMIN" && (
   <LeadUploader />
 
